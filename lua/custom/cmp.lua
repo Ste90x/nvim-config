@@ -52,11 +52,11 @@ cmp.setup {
         end,
     },
     mapping = {
-        ["<S-k>"] = cmp.mapping.select_prev_item(),
-        ["<S-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-        ["<S-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ["<C-e>"] = cmp.mapping {
             i = cmp.mapping.abort(),
@@ -101,6 +101,8 @@ cmp.setup {
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                nvim_lua= "[NvimL]",
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
@@ -110,6 +112,7 @@ cmp.setup {
     },
     sources = {
         { name = "nvim-lsp" },
+        { name = "nvim-lua" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
