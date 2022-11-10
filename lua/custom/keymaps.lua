@@ -20,7 +20,6 @@ vim.g.maplocalleader = " "
 km("n", "<leader>q", ":q!<CR>", opts)
 km("n", "<C-s>", ":w<CR>", opts)
 
-km("n", "<leader>e", ":Lex 30<CR>", opts)
 km("n", "<leader>h", ":noh<CR>", opts)
 km("n", "<leader>bl", ":bnext<CR>", opts)
 km("n", "<leader>bh", ":bprevious<CR>", opts)
@@ -43,3 +42,5 @@ km("x", "<C-S-k>", ":move '<-2<CR>gv-gv", opts)
 km("n", "<leader>ps", ":PackerSync<CR>", opts)
 km("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
 km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+km("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+km("n", "<leader>iol", ":Format<CR>", opts)

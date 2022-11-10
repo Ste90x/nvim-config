@@ -48,10 +48,7 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
     -- automatic bracket closer
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    use "windwp/nvim-autopairs"
 
     -- color scheme
     use { "catppuccin/nvim", as = "catppuccin" }
@@ -87,6 +84,21 @@ return packer.startup(function(use)
     }
     use "p00f/nvim-ts-rainbow"
     -- use "nvim-treesitter/playground"
+
+    -- Comments
+    use "numToStr/Comment.nvim" -- Easily comment stuff
+    use "JoosepAlviste/nvim-ts-context-commentstring" -- JSX / TSX aware comments
+
+    -- Git
+    use "lewis6991/gitsigns.nvim"
+
+    -- Explorer
+    use "kyazdani42/nvim-web-devicons"
+    use "kyazdani42/nvim-tree.lua"
+
+    --Bufferline / Tabs
+    use "akinsho/bufferline.nvim"
+    use "moll/vim-bbye"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

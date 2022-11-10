@@ -3,7 +3,6 @@ local vo = vim.opt
 vo.termguicolors = true
 vo.smartcase = true
 vo.ignorecase = true
-vo.wrap = false
 vo.number = true
 vo.relativenumber = true
 vo.clipboard = "unnamedplus"
