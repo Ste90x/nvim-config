@@ -41,6 +41,6 @@ km("x", "<C-S-k>", ":move '<-2<CR>gv-gv", opts)
 -- plugins
 km("n", "<leader>ps", ":PackerSync<CR>", opts)
 km("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
-km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+km("n", "<leader>F", ":Telescope live_grep<CR>", opts)
 km("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 km("n", "<leader>iol", ":Format<CR>", opts)

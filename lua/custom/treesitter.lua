@@ -1,7 +1,25 @@
 local configs = require("nvim-treesitter.configs")
 
 configs.setup {
-  ensure_installed = "all",
+  ensure_installed = {
+    "astro",
+    "css",
+    "html",
+    "dockerfile",
+    "java",
+    "javascript",
+    "jsdoc",
+    "json",
+    "lua",
+    "prisma",
+    "rust",
+    "scss",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+    "graphql",
+  },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {

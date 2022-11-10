@@ -70,6 +70,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/mason.nvim" -- simple to use language server installer
     use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
+    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"
@@ -96,9 +97,15 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
 
-    --Bufferline / Tabs
+    -- Bufferline / Tabs
     use "akinsho/bufferline.nvim"
     use "moll/vim-bbye"
+    
+    -- Lualine
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+      }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
