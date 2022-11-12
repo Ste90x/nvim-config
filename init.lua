@@ -3,6 +3,7 @@ require("custom.highlights")
 require("custom.keymaps")
 require("custom.plugins")
 require("custom.colorscheme")
+require("custom.commands")
 
 local has = vim.fn.has
 local is_mac = has "macunix"

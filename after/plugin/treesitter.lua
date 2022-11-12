@@ -39,5 +39,15 @@ configs.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
+  },
+  textobjects = {
+    lsp_interop = {
+      enable = true,
+      border = "single",
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      }
+    }
   }
 }

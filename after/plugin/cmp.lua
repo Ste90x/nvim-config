@@ -110,6 +110,11 @@ cmp.setup {
       return vim_item
     end,
   },
+  sorting = {
+    comparators = {
+      require("cmp-under-comparator").under
+    }
+  },
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim-lua" },

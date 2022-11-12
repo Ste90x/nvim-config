@@ -55,7 +55,7 @@ return packer.startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
 
   -- colorizer
-  -- use "norcalli/nvim-colorizer.lua"
+  use "norcalli/nvim-colorizer.lua"
   use { 'mrshmllow/document-color.nvim', config = function()
     require("document-color").setup {
       -- Default options
@@ -64,13 +64,13 @@ return packer.startup(function(use)
   end
   }
 
-  -- cmp + snippet plugins
+  -- Completion + snippet plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-nvim-lsp"
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-
+  use "lukas-reineke/cmp-under-comparator"
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -94,6 +94,13 @@ return packer.startup(function(use)
       ts_update()
     end,
   }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+  use({
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  })
   use "p00f/nvim-ts-rainbow"
 
   -- Comments
@@ -140,20 +147,34 @@ return packer.startup(function(use)
   -- Terminal
   use { "akinsho/toggleterm.nvim" }
 
-  -- CursorLine
+  -- Folding
   use {
-    "yamatsum/nvim-cursorline",
+    "anuvyklack/pretty-fold.nvim",
     config = function()
-      require("nvim-cursorline").setup({
-        cursoword = {
-          hl = {
-            underline = false,
-          }
-        }
-      })
-    end,
-    opt = true
+      require("pretty-fold").setup({})
+    end
   }
+  use {
+    "anuvyklack/fold-preview.nvim",
+    requires = "anuvyklack/keymap-amend.nvim",
+    config = function()
+      require("fold-preview").setup({
+        default_keybindings = false,
+        border = "single",
+      })
+    end
+  }
+
+  -- Leap
+  use {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end
+  }
+
+  -- Indent line
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
