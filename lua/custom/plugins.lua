@@ -44,7 +44,7 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  --   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- automatic bracket closer
@@ -115,6 +115,44 @@ return packer.startup(function(use)
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  }
+
+  -- Which-key
+  -- Lua
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        window = {
+          border = "single", -- none, single, double, shadow
+          position = "bottom", -- bottom, top
+          margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+          padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+          winblend = 0
+        },
+      })
+    end
+  }
+
+  -- Terminal
+  use { "akinsho/toggleterm.nvim" }
+
+  -- CursorLine
+  use {
+    "yamatsum/nvim-cursorline",
+    config = function()
+      require("nvim-cursorline").setup({
+        cursoword = {
+          hl = {
+            underline = false,
+          }
+        }
+      })
+    end,
+    opt = true
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
