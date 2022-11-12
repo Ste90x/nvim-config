@@ -47,4 +47,4 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vo.formatoptions:append { 'r' }
 
 vo.list = true
-vo.listchars:append "space:⋅"
+--[[ vo.listchars:append "space:⋅" ]]

@@ -14,7 +14,7 @@ km("n", "<leader>bl", ":bnext<CR>", opts)
 km("n", "<leader>bh", ":bprevious<CR>", opts)
 km("n", "<leader>bk", ":bdelete!<CR>", opts)
 km("i", "jk", "<ESC>", opts)
-km("n", "<leader>h", ":noh<CR>", opts)
+km("n", "<leader>nh", ":noh<CR>", opts)
 
 km("n", "<C-S-UP>", ":m .-2<CR>", opts)
 km("n", "<C-S-DOWN>", ":m .+1<CR>", opts)
@@ -37,29 +37,43 @@ km("n", "<leader>fp", ":Telescope projects<CR>", opts)
 km("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 km("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
 km("n", "<leader>fg", ":Telescope git_status<CR>", opts)
+km("n", "<leader>fh", ":Telescope harpoon marks<CR>", opts)
 -- NvimTree
 km("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Fold-preview (custom command)
 km("n", "<C-p>", ":FoldPreviewToggle<CR>", opts)
-
+-- Harpoon
+km("n", "<leader>ht", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+km("n", "<leader>ha", "<CMD>lua require('harpoon.mark').add_file()<CR>", opts)
+km("n", "<leader>hn", "<CMD>lua require('harpoon.mark').nav_next()<CR>", opts)
+km("n", "<leader>hp", "<CMD>lua require('harpoon.mark').nav_prev()<CR>", opts)
 
 -- Whichkey
 local wk_status_ok, wk = pcall(require, "which-key")
 if not wk_status_ok then return end
 
 wk.register({
+  n = {
+    h = { "Remove Highlight" }
+  },
   f = {
     name = "Telescope",
     f = { "Find File" },
-    a = { "Live Grep" },
-    p = { "Projects" },
-    b = { "Buffers" },
-    k = { "Keymaps" },
-    g = { "Git diff" },
+    a = { "Find String (Grep)" },
+    p = { "Find Projects" },
+    b = { "Find Buffers" },
+    k = { "Find Keymaps" },
+    g = { "Show Git diff" },
+    h = { "Show Harpoon Marks" }
   },
-  F = { "Find String (grep)" },
   q = { "Quit" },
-  h = { "Remove Highlight" },
+  h = {
+    name = "Harpoon",
+    t = { "Toggle Quick Menu" },
+    a = { "Add File" },
+    n = { "Next File" },
+    p = { "Previous File" }
+  },
   b = {
     name = "Buffer",
     l = { "Next Buffer" },

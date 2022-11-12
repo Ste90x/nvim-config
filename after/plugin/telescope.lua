@@ -5,13 +5,21 @@ end
 
 local actions = require "telescope.actions"
 
+local h_status_ok, _ = pcall(require, "harpoon")
+if not h_status_ok then
+  return
+end
+
+telescope.load_extension("harpoon")
+
 telescope.setup {
   defaults = {
-
+    file_ignore_patterns = {
+      "node_modules"
+    },
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -92,6 +100,7 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    harpoon = {
+    }
   },
 }
-
