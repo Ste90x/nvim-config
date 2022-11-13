@@ -44,24 +44,24 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  --[[ use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim ]]
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
+  -- color scheme
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- automatic bracket closer
   use "windwp/nvim-autopairs"
   use "windwp/nvim-ts-autotag"
 
-  -- color scheme
-  use { "catppuccin/nvim", as = "catppuccin" }
-
   -- colorizer
   use "norcalli/nvim-colorizer.lua"
-  use { 'mrshmllow/document-color.nvim', config = function()
-    require("document-color").setup {
-      -- Default options
-      mode = "background", -- "background" | "foreground" | "single"
-    }
-  end
+  use { 'mrshmllow/document-color.nvim',
+    config = function()
+      require("document-color").setup {
+        mode = "background",
+      }
+    end
   }
 
   -- Completion + snippet plugins
@@ -71,6 +71,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "lukas-reineke/cmp-under-comparator"
+
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -116,7 +117,6 @@ return packer.startup(function(use)
 
   -- Bufferline / Tabs
   use "akinsho/bufferline.nvim"
-  use "moll/vim-bbye"
 
   -- Lualine
   use {
@@ -125,14 +125,10 @@ return packer.startup(function(use)
   }
 
   -- Which-key
-  -- Lua
   use {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
         window = {
           border = "single", -- none, single, double, shadow
           position = "bottom", -- bottom, top
@@ -182,8 +178,6 @@ return packer.startup(function(use)
   -- Dashboard
   --[[ use "glepnir/dashboard-nvim" ]]
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
