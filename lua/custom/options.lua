@@ -33,9 +33,9 @@ vo.wrap = false -- No Wrap lines
 vo.path:append { '**' } -- Finding files - Search down into subfolders
 vo.wildignore:append { '*/node_modules/*' }
 
--- Undercurl
--- vim.cmd([[let &t_Cs = "\e[4:3m"]])
--- vim.cmd([[let &t_Ce = "\e[4:0m"]])
+vim.cmd("set incsearch")
+vim.cmd("set nohlsearch")
+vim.cmd("nnoremap <c-h> :set hlsearch!<CR>")
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {

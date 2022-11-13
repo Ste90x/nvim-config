@@ -14,7 +14,6 @@ km("n", "<leader>bl", ":bnext<CR>", opts)
 km("n", "<leader>bh", ":bprevious<CR>", opts)
 km("n", "<leader>bk", ":bdelete!<CR>", opts)
 km("i", "jk", "<ESC>", opts)
-km("n", "<leader>nh", ":noh<CR>", opts)
 
 km("n", "<C-S-UP>", ":m .-2<CR>", opts)
 km("n", "<C-S-DOWN>", ":m .+1<CR>", opts)
@@ -32,7 +31,7 @@ km("n", "<leader>ps", ":PackerSync<CR>", opts)
 km("n", "<leader>pi", ":PackerInstall<CR>", opts)
 -- Telescope
 km("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-km("n", "<leader>fa", ":Telescope live_grep<CR>", opts)
+km("n", "<leader>fw", ":Telescope live_grep<CR>", opts)
 km("n", "<leader>fp", ":Telescope projects<CR>", opts)
 km("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 km("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
@@ -53,13 +52,10 @@ local wk_status_ok, wk = pcall(require, "which-key")
 if not wk_status_ok then return end
 
 wk.register({
-  n = {
-    h = { "Remove Highlight" }
-  },
   f = {
     name = "Telescope",
     f = { "Find File" },
-    a = { "Find String (Grep)" },
+    w = { "Find Word (Grep)" },
     p = { "Find Projects" },
     b = { "Find Buffers" },
     k = { "Find Keymaps" },

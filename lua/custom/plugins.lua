@@ -179,8 +179,8 @@ return packer.startup(function(use)
   -- Harpoon
   use "ThePrimeagen/harpoon"
 
-  -- Transparency
-  use "xiyaowong/nvim-transparent"
+  -- Dashboard
+  --[[ use "glepnir/dashboard-nvim" ]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
