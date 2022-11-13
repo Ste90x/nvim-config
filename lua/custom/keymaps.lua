@@ -10,9 +10,8 @@ vim.g.maplocalleader = " "
 km("n", "<leader>q", ":q!<CR>", opts)
 km("n", "<C-s>", ":w<CR>", opts)
 
-km("n", "<leader>bl", ":bnext<CR>", opts)
-km("n", "<leader>bh", ":bprevious<CR>", opts)
-km("n", "<leader>bk", ":bdelete!<CR>", opts)
+km("n", "<leader>bn", ":bnext<CR>", opts)
+km("n", "<leader>bd", ":bdelete!<CR>", opts)
 km("i", "jk", "<ESC>", opts)
 
 km("n", "<C-S-UP>", ":m .-2<CR>", opts)
@@ -72,13 +71,13 @@ wk.register({
   },
   b = {
     name = "Buffer",
-    l = { "Next Buffer" },
-    h = { "Previous Buffer" },
-    k = { "Delete Buffer" },
+    n = { "Next Buffer" },
+    d = { "Delete Buffer" },
   },
   p = {
     name = "Packer",
     s = { "Sync (PackerSync)" },
+    i = { "Install (PackerInstall)" },
   }
 }, {
   mode = "n", -- NORMAL mode
