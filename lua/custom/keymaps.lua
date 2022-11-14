@@ -14,15 +14,15 @@ km("n", "<leader>bn", ":bnext<CR>", opts)
 km("n", "<leader>bd", ":bdelete!<CR>", opts)
 km("i", "jk", "<ESC>", opts)
 
-km("n", "<C-S-UP>", ":m .-2<CR>", opts)
-km("n", "<C-S-DOWN>", ":m .+1<CR>", opts)
+km("n", "<S-UP>", ":m .-2<CR>", opts)
+km("n", "<S-DOWN>", ":m .+1<CR>", opts)
 
-km("v", "<C-S-UP>", ":m .-2<CR>==", opts)
-km("v", "<C-S-DOWN>", ":m .+1<CR>==", opts)
+km("v", "<S-UP>", ":m .-2<CR>==", opts)
+km("v", "<S-DOWN>", ":m .+1<CR>==", opts)
 km("v", "p", '"_dP', opts)
 
-km("x", "<C-S-UP>", ":move '<-2<CR>gv-gv", opts)
-km("x", "<C-S-DOWN>", ":move '>+1<CR>gv-gv", opts)
+km("x", "<S-UP>", ":move '<-2<CR>gv-gv", opts)
+km("x", "<S-DOWN>", ":move '>+1<CR>gv-gv", opts)
 
 -- Plugins
 -- Packer

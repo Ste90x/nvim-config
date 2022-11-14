@@ -78,11 +78,23 @@ nvim_lsp.flow.setup {
   capabilities = capabilities
 }
 
+local os_name = vim.loop.os_uname().sysname
+local tsserver_cmd
+if os_name == "Windows_NT" then
+  tsserver_cmd = { "typescript-language-server.cmd", "--stdio" }
+end
+if os_name == "OSX" then
+  tsserver_cmd = { "typescript-language-server", "--stdio" }
+end
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
+  capabilities = capabilities,
+  cmd = tsserver_cmd,
+  init_options = {
+    hostInfo = "neovim"
+  }
 }
 
 nvim_lsp.sourcekit.setup {
